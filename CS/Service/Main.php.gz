@@ -1,0 +1,4 @@
+
+Warning: Unexpected character in input:  '' (ASCII=11) state=0 in /var/websites/dev0_chattrspace_com/webroot/Main.php.gz on line 31
+
+Parse error: syntax error, unexpected T_STRING in /var/websites/dev0_chattrspace_com/webroot/Main.php.gz on line 31

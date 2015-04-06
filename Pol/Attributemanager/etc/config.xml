@@ -1,0 +1,235 @@
+<?xml version="1.0"?>
+<config>
+<!-- met en marche le module et permet le support d'installation -->
+    <modules>
+        <Pol_Attributemanager>
+            <version>0.1.0</version>
+        </Pol_Attributemanager>
+    </modules>
+    
+    <admin>
+        <routers>
+			<attributemanager>
+				<use>admin</use>
+				<args>
+					<module>Pol_Attributemanager</module>
+					<frontName>attributemanager</frontName>
+				</args>
+			</attributemanager>
+        </routers>
+    </admin>
+    
+   <frontend>
+        <routers>
+            <attributemanager>
+                <use>standard</use>
+                <args>
+                    <module>Pol_Attributemanager</module>
+                    <frontName>social</frontName>
+                </args>
+            </attributemanager>
+        </routers>
+		<translate>
+            <modules>
+                <Pol_Attributemanager>
+                    <files>
+                        <default>Pol_Attributemanager.csv</default>
+                    </files>
+                </Pol_Attributemanager>
+            </modules>
+        </translate>
+       <!--  <layout>
+            <updates>
+                <attributemanager>
+                    <file>attributemanager.xml</file>
+                </attributemanager>
+            </updates>
+        </layout> -->
+    </frontend>
+    
+    <default>
+    	<config_vars></config_vars>
+   	</default>
+    
+    <adminhtml>
+		<!-- <menu>
+			<system>
+				<children>
+					<pol> 
+						<title>Manager</title>
+						<sort_order>20</sort_order>           
+						<children>
+							<items module="attributemanager">
+								<title>Manage Attributes for categories and customers</title>
+								<action>attributemanager</action>
+							</items>
+						</children>
+					</pol> 
+				</children>
+			</system>
+		</menu> -->
+		<menu>
+		  <system>
+			<children>
+			  <pol>
+				
+			  </pol>
+			</children>
+		  </system>
+		</menu> 
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+						<Pol_Attributemanager>
+							<title>Attributemanager Module</title>
+							<sort_order>10</sort_order>
+						</Pol_Attributemanager>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+		<layout>
+			<updates>
+				<attributemanager>
+					<file>attributemanager.xml</file>
+				</attributemanager>
+			</updates>
+		</layout>
+		<!-- <translate>
+		            <modules>
+		                <Pol_Attributemanager>
+		                    <files>
+		                        <default>Pol_Attributemanager.csv</default>
+		                    </files>
+		                </Pol_Attributemanager>
+		            </modules>
+        	</translate>-->
+    </adminhtml> 
+      
+    <global>
+    	<rewrite>
+            <!-- Rewrite customer  action -->
+			<pol_customerprofile_account>
+                <from><![CDATA[#^/customer/account/#]]></from>
+                <to>attributemanager/account/</to>
+			</pol_customerprofile_account>
+			<pol_attributemanager_account_loginPost>
+                <from><![CDATA[#^/customer/account/loginPost(.*)#]]></from>
+                <to>attributemanager/account/loginPost</to>
+			</pol_attributemanager_account_loginPost>
+			<pol_attributemanager_account_createPost>
+                <from><![CDATA[#^/customer/account/createPost(.*)#]]></from>
+                <to>attributemanager/account/createPost</to>
+			</pol_attributemanager_account_createPost>
+			<pol_customerprofile_account_editPost>
+                <from><![CDATA[#^/customer/account/editPost(.*)#]]></from>
+                <to>attributemanager/account/editPost</to>
+			</pol_customerprofile_account_editPost>
+			<pol_customerprofile_account_password>
+                <from><![CDATA[#^/customer/account/password(.*)#]]></from>
+                <to>attributemanager/account/password</to>
+			</pol_customerprofile_account_password>
+			<pol_customerprofile_account_profile>
+                <from><![CDATA[#^/customer/account/profile(.*)#]]></from>
+                <to>attributemanager/account/profile</to>
+			</pol_customerprofile_account_profile>
+			<pol_customerprofile_account_notice>
+                <from><![CDATA[#^/customer/account/notice(.*)#]]></from>
+                <to>attributemanager/account/notice</to>
+			</pol_customerprofile_account_notice>
+			<pol_customerprofile_account_credit>
+                <from><![CDATA[#^/customer/account/credit(.*)#]]></from>
+                <to>attributemanager/account/credit</to>
+			</pol_customerprofile_account_credit>
+			<pol_customerprofile_account_design>
+                <from><![CDATA[#^/customer/account/design(.*)#]]></from>
+                <to>attributemanager/account/design</to>
+			</pol_customerprofile_account_design>
+			<pol_customerprofile_account_service>
+                <from><![CDATA[#^/customer/account/service(.*)#]]></from>
+                <to>attributemanager/account/service</to>
+			</pol_customerprofile_account_service>
+			
+			<pol_attributemanager_account_flashvideo>
+                <from><![CDATA[#^/customer/account/flashvideo(.*)#]]></from>
+                <to>attributemanager/account/flashvideo</to>
+			</pol_attributemanager_account_flashvideo>
+			
+			<pol_attributemanager_account_followed>
+                <from><![CDATA[#^/customer/account/followed(.*)#]]></from>
+                <to>attributemanager/account/followed</to>
+			</pol_attributemanager_account_followed>
+			
+			<pol_attributemanager_account_following>
+                <from><![CDATA[#^/customer/account/following(.*)#]]></from>
+                <to>attributemanager/account/following</to>
+			</pol_attributemanager_account_following>
+			<pol_attributemanager_account_deactivateAccount>
+                <from><![CDATA[#^/customer/account/deactivateAccount(.*)#]]></from>
+                <to>attributemanager/account/deactivateAccount</to>
+			</pol_attributemanager_account_deactivateAccount>
+			<pol_attributemanager_account_editEmailPost>
+                <from><![CDATA[#^/customer/account/editEmailPost(.*)#]]></from>
+                <to>attributemanager/account/editEmailPost</to>
+			</pol_attributemanager_account_editEmailPost>
+        </rewrite>
+
+		
+		<!-- <rewrite>
+			<magesocial_ewkCore_adminhtml_customer>
+				<from><![CDATA[#^/admin/customer/save#]]></from>
+				<to>/ewkCore/customer/save</to>
+			</magesocial_ewkCore_adminhtml_customer>
+		</rewrite> -->
+		
+        <models>
+            <attributemanager>
+                <class>Pol_Attributemanager_Model</class>
+            </attributemanager>
+            <!-- <categoriesattributes_mysql4>
+                <class>Pol_CategoriesAttributes_Model_Mysql4</class>
+                <entities>
+                    <categoriesattributes>
+                        <table>categoriesattributes</table>
+                    </categoriesattributes>
+                </entities>
+            </categoriesattributes_mysql4>-->
+        </models>
+        <blocks>
+            <attributemanager>
+                <class>Pol_Attributemanager_Block</class>
+            </attributemanager>
+        </blocks>
+        <helpers>
+            <attributemanager>
+                <class>Pol_Attributemanager_Helper</class>
+            </attributemanager>
+        </helpers>
+        <!-- ressource correspond aux connexion à la base -->
+        <resources>
+        <!-- Permet l'intallation des tables dans la base -->
+            <!-- <attributemanager_setup>
+                <setup>
+                    <module>Pol_Attributemanager</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </attributemanager_setup>
+            <attributemanager_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </attributemanager_write>
+            <attributemanager_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </attributemanager_read>-->
+        </resources>
+    </global>
+</config>

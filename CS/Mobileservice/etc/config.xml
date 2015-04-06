@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <CS_Mobileservice>
+            <version>1.1.0</version>
+        </CS_Mobileservice>
+    </modules>
+	<frontend>
+		<routers>
+			<mobileservice>
+				<use>standard</use>
+				<args>
+				<module>CS_Mobileservice</module>
+				<frontName>cspmobileservice</frontName>
+			</args>
+			</mobileservice>
+		</routers>
+	</frontend>    
+</config>
